@@ -69,8 +69,7 @@ class GestorRegistrosVerdes {
     }
 }
 
-// ── Generación estocástica de datos (Fisher-Yates) ───────────
-
+// Función para generar un arreglo de Registros Ambientales desordenados
 function generarDatosPrueba(cantidad) {
     let datos = [];
     for (let i = 0; i < cantidad; i++) {
@@ -78,7 +77,7 @@ function generarDatosPrueba(cantidad) {
         let co2     = +(Math.random() * 100).toFixed(2);
         datos.push(new RegistroAmbiental(i, especie, co2));
     }
-    // Fisher-Yates O(n)
+     // Algoritmo de Fisher-Yates para desordenar el arreglo eficientemente en O(n)
     for (let i = datos.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [datos[i], datos[j]] = [datos[j], datos[i]];
